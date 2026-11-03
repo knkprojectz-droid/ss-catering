@@ -102,10 +102,10 @@ function Loader({ onDone }) {
       <div className="loader-plate">
         <div className="loader-ring" />
         <div className="loader-inner-ring" />
-        <img src="/ssc-emblem-hd.png" alt="SSC Logo" className="loader-logo-img" />
+        <img src="/ssc-official-logo.png" alt="S.S. Caterers Logo" className="loader-logo-img" />
       </div>
       <p className="loader-brand">S.S. CATERERS</p>
-      <p className="loader-motto">Quality First · Chennai</p>
+      <p className="loader-motto">Quality First, Taste Always</p>
       <div className="loader-track">
         <div className="loader-fill" style={{ width: `${pct}%` }} />
       </div>
@@ -130,13 +130,11 @@ function Navbar() {
   return (
     <nav className={`nav ${scrolled ? 'nav--scrolled' : ''}`}>
       <a href="#hero" className="nav-logo">
-        <div className="nav-badge-img-wrap">
-          <img src="/ssc-emblem-hd.png" alt="SS Caterers Logo" className="nav-logo-img" />
-        </div>
-        <div className="nav-brand-text">
-          <span className="nav-title">S.S. <span className="nav-accent">CATERERS</span></span>
-          <span className="nav-sub">Quality First · Est. Chennai</span>
-        </div>
+        <img
+          src="/ssc-official-logo.png"
+          alt="S.S. Caterers - Quality First, Taste Always"
+          className="nav-main-logo"
+        />
       </a>
       <ul className={`nav-menu ${menuOpen ? 'open' : ''}`}>
         {['About', 'Services', 'Menu', 'Calculator', 'Gallery', 'Reviews', 'Contact'].map(n => (
@@ -198,50 +196,29 @@ function HeroSection() {
     }
   }, []);
 
-  const floatingBadges = [
-    { text: '🌿 Pure Ghee & Fresh Spices', top: '16%', left: '4%' },
-    { text: '👑 Grand Wedding Specialists', top: '38%', left: '2%' },
-    { text: '⭐ 500+ Memorable Celebrations', top: '78%', left: '8%' },
-    { text: '📍 Shenoy Nagar, Chennai', top: '22%', right: '4%' },
-    { text: '✨ Custom Feasts & Buffets', top: '76%', right: '5%' }
-  ];
-
   return (
     <section className="hero" id="hero" ref={heroRef}>
       <div className="hero-bg" ref={bgRef} style={{ backgroundImage: `url('/food-hero.jpg')` }} />
       <div className="hero-overlay" />
 
-      {/* Floating Badges */}
-      <div className="hero-floating-badges">
-        {floatingBadges.map((b, i) => (
-          <div
-            key={i}
-            className="hero-pill-badge"
-            style={{
-              top: b.top,
-              left: b.left,
-              right: b.right,
-              animationDelay: `${i * 0.7}s`
-            }}
-          >
-            {b.text}
-          </div>
-        ))}
-      </div>
-
       <div className="hero-grid">
         {/* Left Column: Headline & Intro */}
         <div className="hero-text">
-          <div className="chip">
-            <span className="chip-spark">✦</span> Chennai’s Premier Event Caterers
+          <div className="hero-badge-pill">
+            <span className="badge-spark">✦</span> Chennai’s Premier Event Caterers <span className="badge-spark">✦</span>
           </div>
           
           <h1 className="hero-h1">
-            <span className="hero-ss">S.S.</span>
-            <span className="hero-caterers">CATERERS</span>
+            <span className="hero-title-main">S.S. CATERERS</span>
           </h1>
           
-          <p className="hero-script">✦ Quality First ✦</p>
+          <div className="hero-motto-row">
+            <span className="hero-motto-line" />
+            <span className="hero-motto-flourish">✦</span>
+            <span className="hero-motto-text">Quality First, Taste Always</span>
+            <span className="hero-motto-flourish">✦</span>
+            <span className="hero-motto-line hero-motto-line--rev" />
+          </div>
 
           <p className="hero-desc">
             Grand authentic South Indian delicacies, fragrant wedding biryanis, and lavish multi-course feasts. 
@@ -249,7 +226,7 @@ function HeroSection() {
           </p>
 
           <div className="hero-actions">
-            <a href="tel:9841600569" className="btn-orange">
+            <a href="tel:9841600569" className="btn-primary-gold">
               <span>📞 Quick Call Booking</span>
             </a>
             <a
@@ -272,31 +249,38 @@ function HeroSection() {
               ['100%', 'Taste & Hygiene'],
               ['50k+', 'Guests Delighted']
             ].map(([num, lbl]) => (
-              <div key={lbl} className="hstat">
+              <div key={lbl} className="hstat-card">
                 <b>{num}</b>
                 <span>{lbl}</span>
               </div>
             ))}
           </div>
+
+          <div className="hero-trust-bar">
+            <span className="trust-chip">🌿 Pure Ghee & Fresh Spices</span>
+            <span className="trust-chip">👑 Grand Wedding Specialists</span>
+            <span className="trust-chip">📍 Shenoy Nagar, Chennai</span>
+            <span className="trust-chip">⭐ 5-Star Rated Service</span>
+          </div>
         </div>
 
-        {/* Right Column: Interactive 3D Visiting Card */}
+        {/* Right Column: Interactive 3D Brand Card */}
         <div className="hero-card-wrap" onMouseMove={onMouseMove} onMouseLeave={onMouseLeave}>
           <div className="hero-card" ref={cardRef}>
             <div className="hcard-glow-top" />
             
-            {/* Top row with visiting card graphic tag */}
+            {/* Top row with brand card tag */}
             <div className="hcard-header">
               <span className="hcard-jesus">✦ JESUS LOVES YOU ✦</span>
-              <span className="hcard-badge-tag">OFFICIAL VISITING CARD</span>
+              <span className="hcard-badge-tag">OFFICIAL BRAND CARD</span>
             </div>
 
-            {/* Official Logo Banner from Client Visiting Card */}
-            <div className="hcard-banner-wrapper">
+            {/* Official Logo Showcase */}
+            <div className="hcard-logo-showcase">
               <img
-                src="/logo-badge-hd.png"
-                alt="S.S. Caterers Quality First Official Logo"
-                className="hcard-official-logo"
+                src="/ssc-official-logo.png"
+                alt="S.S. Caterers - Quality First, Taste Always"
+                className="hcard-logo-img"
               />
             </div>
 
@@ -412,9 +396,13 @@ function AboutSection() {
 
           {/* Description & Values */}
           <div className="about-text">
-            <div className="sec-tag reveal">About S.S. Caterers</div>
-            <h2 className="sec-h2 reveal">Rooted in Tradition, <span>Perfected</span> for Celebrations</h2>
-            <div className="sec-line reveal" />
+            <div className="sec-tag reveal">✦ About S.S. Caterers ✦</div>
+            <h2 className="sec-h2 reveal">Rooted in Tradition, <span className="gold-grad">Perfected</span> for Celebrations</h2>
+            <div className="sec-divider reveal">
+              <span className="sec-divider-line" />
+              <span className="sec-flourish">✦</span>
+              <span className="sec-divider-line sec-divider-line--rev" />
+            </div>
             <p className="about-p reveal">
               Established with an unwavering commitment to <strong>Quality First</strong>, S.S. Caterers 
               has earned the trust of families and premier corporate organizations across Chennai.
@@ -459,7 +447,7 @@ function AboutSection() {
             </div>
 
             <div className="about-actions reveal">
-              <a href="#calculator" className="btn-orange">Calculate Event Budget</a>
+              <a href="#calculator" className="btn-primary-gold">Calculate Event Budget</a>
               <a href="tel:9841600569" className="btn-ghost">Call J. Jaswanth Samuel</a>
             </div>
           </div>
@@ -522,12 +510,16 @@ function ServicesSection() {
     <section className="svc-sec" id="services">
       <div className="container">
         <div className="sec-header reveal">
-          <div className="sec-tag">Tailored Culinary Solutions</div>
-          <h2 className="sec-h2">Exceptional Catering for <span>Every Occasion</span></h2>
+          <div className="sec-tag">✦ Tailored Culinary Solutions ✦</div>
+          <h2 className="sec-h2">Exceptional Catering for <span className="gold-grad">Every Occasion</span></h2>
           <p className="sec-desc">
             We adapt seamlessly to your guest count, dietary preferences, and event themes across Chennai.
           </p>
-          <div className="sec-line" />
+          <div className="sec-divider">
+            <span className="sec-divider-line" />
+            <span className="sec-flourish">✦</span>
+            <span className="sec-divider-line sec-divider-line--rev" />
+          </div>
         </div>
 
         <div className="svc-grid-pro">
@@ -658,12 +650,16 @@ function MenuSection() {
     <section className="menu-sec" id="menu">
       <div className="container">
         <div className="sec-header reveal">
-          <div className="sec-tag">Culinary Masterpieces</div>
-          <h2 className="sec-h2">Our Signature <span>Menu Spread</span></h2>
+          <div className="sec-tag">✦ Culinary Masterpieces ✦</div>
+          <h2 className="sec-h2">Our Signature <span className="gold-grad">Menu Spread</span></h2>
           <p className="sec-desc">
             Prepared with traditional secret masalas, slow-cooking craftsmanship, and uncompromised quality.
           </p>
-          <div className="sec-line" />
+          <div className="sec-divider">
+            <span className="sec-divider-line" />
+            <span className="sec-flourish">✦</span>
+            <span className="sec-divider-line sec-divider-line--rev" />
+          </div>
         </div>
 
         {/* Tab Filters */}
@@ -754,12 +750,16 @@ function BudgetCalculator() {
     <section className="calc-sec" id="calculator">
       <div className="container">
         <div className="sec-header reveal">
-          <div className="sec-tag">Interactive Pricing Tool</div>
-          <h2 className="sec-h2">Estimate Your <span>Event Budget</span></h2>
+          <div className="sec-tag">✦ Interactive Pricing Tool ✦</div>
+          <h2 className="sec-h2">Estimate Your <span className="gold-grad">Event Budget</span></h2>
           <p className="sec-desc">
             Get an instant realistic estimate for your celebration in Chennai. Tailored to your guest count.
           </p>
-          <div className="sec-line" />
+          <div className="sec-divider">
+            <span className="sec-divider-line" />
+            <span className="sec-flourish">✦</span>
+            <span className="sec-divider-line sec-divider-line--rev" />
+          </div>
         </div>
 
         <div className="calc-container reveal">
@@ -919,10 +919,14 @@ function GallerySection() {
     <section className="gallery-sec" id="gallery">
       <div className="container">
         <div className="sec-header reveal">
-          <div className="sec-tag">Visual Showcase</div>
-          <h2 className="sec-h2">A Glimpse of <span>Our Feasts</span></h2>
+          <div className="sec-tag">✦ Visual Showcase ✦</div>
+          <h2 className="sec-h2">A Glimpse of <span className="gold-grad">Our Feasts</span></h2>
           <p className="sec-desc">Explore the presentation and live setup excellence crafted for celebrations in Chennai.</p>
-          <div className="sec-line" />
+          <div className="sec-divider">
+            <span className="sec-divider-line" />
+            <span className="sec-flourish">✦</span>
+            <span className="sec-divider-line sec-divider-line--rev" />
+          </div>
         </div>
       </div>
       <div
@@ -980,12 +984,16 @@ function TestimonialsSection() {
     <section className="testi-sec" id="reviews">
       <div className="container">
         <div className="sec-header reveal">
-          <div className="sec-tag">Client Testimonials</div>
-          <h2 className="sec-h2">Loved by Families Across <span>Chennai</span></h2>
+          <div className="sec-tag">✦ Client Testimonials ✦</div>
+          <h2 className="sec-h2">Loved by Families Across <span className="gold-grad">Chennai</span></h2>
           <p className="sec-desc">
             Real feedback from hosts who entrusted their special milestones to S.S. Caterers.
           </p>
-          <div className="sec-line" />
+          <div className="sec-divider">
+            <span className="sec-divider-line" />
+            <span className="sec-flourish">✦</span>
+            <span className="sec-divider-line sec-divider-line--rev" />
+          </div>
         </div>
 
         <div className="testi-grid">
@@ -1025,10 +1033,14 @@ function WhySection() {
     <section className="why-sec">
       <div className="container">
         <div className="sec-header reveal">
-          <div className="sec-tag">Our Competitive Edge</div>
-          <h2 className="sec-h2">Why Families <span>Choose</span> S.S. Caterers</h2>
+          <div className="sec-tag">✦ Our Competitive Edge ✦</div>
+          <h2 className="sec-h2">Why Families <span className="gold-grad">Choose</span> S.S. Caterers</h2>
           <p className="sec-desc">We don’t just serve meals — we curate memories of warmth and celebration.</p>
-          <div className="sec-line" />
+          <div className="sec-divider">
+            <span className="sec-divider-line" />
+            <span className="sec-flourish">✦</span>
+            <span className="sec-divider-line sec-divider-line--rev" />
+          </div>
         </div>
         <div className="why-grid">
           {reasons.map((r, i) => (
@@ -1076,10 +1088,14 @@ function ContactSection() {
     <section className="contact-sec" id="contact">
       <div className="container">
         <div className="sec-header reveal">
-          <div className="sec-tag">Direct Booking & Enquiries</div>
-          <h2 className="sec-h2">Let’s Plan Your <span>Memorable Feast</span></h2>
+          <div className="sec-tag">✦ Direct Booking & Enquiries ✦</div>
+          <h2 className="sec-h2">Let’s Plan Your <span className="gold-grad">Memorable Feast</span></h2>
           <p className="sec-desc">Reach out directly via phone, WhatsApp, or through our quick booking enquiry form.</p>
-          <div className="sec-line" />
+          <div className="sec-divider">
+            <span className="sec-divider-line" />
+            <span className="sec-flourish">✦</span>
+            <span className="sec-divider-line sec-divider-line--rev" />
+          </div>
         </div>
         
         <div className="contact-grid">
@@ -1112,9 +1128,9 @@ function ContactSection() {
               rel="noreferrer"
               className="cinfo-item cinfo-item--wa"
             >
-              <div className="cinfo-icon" style={{ background: '#25D366' }}>💬</div>
+              <div className="cinfo-icon" style={{ background: 'var(--wa-emerald)', color: '#FFFFFF' }}>💬</div>
               <div>
-                <div className="cinfo-lbl" style={{ color: '#25D366' }}>Instant WhatsApp</div>
+                <div className="cinfo-lbl" style={{ color: 'var(--wa-emerald)' }}>Instant WhatsApp</div>
                 <div className="cinfo-val">+91 98416 00569</div>
                 <span className="cinfo-action-text">Chat with Jaswanth directly →</span>
               </div>
@@ -1342,17 +1358,15 @@ export default function App() {
         <footer className="footer">
           <div className="footer-inner">
             <div className="footer-brand">
-              <div className="footer-badge-img-wrap">
-                <img src="/ssc-emblem-hd.png" alt="SS Caterers Logo" className="footer-logo-img" />
-              </div>
-              <div>
-                <div className="footer-name">S.S. CATERERS</div>
-                <div className="footer-tag-line">Quality First · Shenoy Nagar, Chennai</div>
-              </div>
+              <img
+                src="/ssc-official-logo.png"
+                alt="S.S. Caterers Logo"
+                className="footer-main-logo"
+              />
             </div>
 
             <div className="footer-copy">
-              © {new Date().getFullYear()} S.S. Caterers. All Rights Reserved.<br />
+              © 2026 S.S. Caterers. All Rights Reserved.<br />
               #28/32, Kandan Street, Shenoy Nagar, Chennai – 600 030<br />
               <span style={{ color: 'var(--gold)', fontStyle: 'italic' }}>"Jesus Loves You"</span>
             </div>
@@ -1365,7 +1379,7 @@ export default function App() {
                 href="https://wa.me/919841600569"
                 target="_blank"
                 rel="noreferrer"
-                style={{ color: '#25D366', fontWeight: 'bold' }}
+                style={{ color: 'var(--wa-emerald)', fontWeight: 'bold' }}
               >
                 💬 WhatsApp Available 24/7
               </a>
